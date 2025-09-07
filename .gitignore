@@ -4,6 +4,7 @@ venv/
 .idea/
 .vscode/
 
+
 # macOS
 .DS_Store
 
@@ -18,3 +19,6 @@ venv/
 __pycache__/
 /backend/models/
 /backend/local_data/
+/backend/user_state.db
+/data/
+/models/
