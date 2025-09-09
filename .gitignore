@@ -21,5 +21,6 @@ __pycache__/
 /backend/local_data/
 /backend/user_state.db
 /data/
+/data/explore_feed.json
 /models/
 /backend/results/

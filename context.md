@@ -58,22 +58,24 @@ To build an on-device, multi-modal, adaptive learning app for a Socratic Math Tu
     * Modified `main.dart` to include a new `HomeScreen` widget for navigation with buttons for both the Socratic Tutor and Emotional GPS screens.
 * **Rationale:** SQLite offers a lightweight, file-based database ideal for on-device use. The modular frontend setup in Flutter adheres to best practices for building scalable applications.
 
----
+### **User Story 2.2: Explore Feed & Concept Weaving**
+* **Goal:** Implement the "magic glue" that connects learned concepts to relevant content in an Explore Feed.
+* **Backend Setup:**
+    * Created a static `data/explore_feed.json` file to act as the curated content database.
+    * Implemented `FuzzyWuzzy` for robust keyword matching in the `weave_concepts` function.
+    * Updated `main.py` with new logic to load the JSON file at startup.
+    * Created a new `GET /feed/explore/{tags}` endpoint to retrieve content based on tags.
+    * Modified the `ask_tutor` endpoint to call `weave_concepts` and return the relevant tags in the response.
+* **Frontend Setup:**
+    * Created a new Dart file (`explore_feed_screen.dart`) with a UI to display content items.
+    * Added the `url_launcher` package to open links.
+    * Modified `main.dart` to include a button on the `HomeScreen` that navigates to the `ExploreFeedScreen` with some predefined tags.
+* **Rationale:** This feature is the core differentiator of our app. Using a static JSON file and simple keyword matching is the perfect MVP approach. It proves the concept without the complexity of a real-time CMS or a full-scale recommender system. The modular frontend setup ensures the app remains organized as we add more features.
 
-### **New User Story: Explore Feed & Concept Weaving**
+### **Parallel Teaching Summary**
 
-We're now ready for our final user story in Sprint 2. My role will remain as **AI/ML Engineer & Backend Lead**, as this story involves integrating the LLM with a new data source and a Python logic module.
+* **Flutter `Navigator`:** A fundamental concept in Flutter for managing app navigation. It operates like a stack, where new screens are `pushed` onto the stack and old screens are `popped` off. We use `MaterialPageRoute` to define the transition to a new screen.
 
-#### **User Story 2.2: Explore Feed & Concept Weaving**
+***
 
-**As a user,** I want the system to show me relevant content based on what I am learning in the Socratic Tutor, **so that** I can connect academic concepts to real-world applications.
-
-**Acceptance Criteria:**
-* A static `explore_feed.json` file is present in the `data/` directory.
-* The `main.py` Orchestrator has new logic to read and parse this JSON file.
-* The `Math Tutor` module calls a new `Weaving Logic` Python function after each conversation turn.
-* The `Weaving Logic` identifies key math concepts from the tutor's response (e.g., "quadratic equation", "factoring").
-* A new `GET /feed/explore` endpoint is created that returns a curated list of content items from the JSON file based on the identified concepts.
-* The Flutter frontend has a new screen or widget to display the curated list.
-
-I've provided a very clear breakdown for the next task. Let's start with the backend logic. Let me know when you're ready to proceed.
+Please proceed with the frontend implementation. Once you have tested the new `ExploreFeedScreen` and it successfully loads content from your backend, let me know.

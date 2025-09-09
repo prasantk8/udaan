@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'emotional_checkin_screen.dart';
+import 'explore_feed_screen.dart';
 
 // --- Main App Entry Point ---
 // The main function is the starting point for all Flutter apps.
@@ -67,6 +68,27 @@ class HomeScreen extends StatelessWidget {
               },
               child: const Text('Open Emotional GPS'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ExploreFeedScreen(tags: ['algebra', 'equations']),
+                  ),
+                );
+              },
+              child: const Text('View Explore Feed'),
+            ),
+            // In your ChatScreen widget, under the Column, add a new Row or button
+// This button will appear after a user gets a response
+// ElevatedButton(
+//   onPressed: () {
+//     // Here we'll need the tags from the backend
+//     // This is a more advanced pattern; let's simplify for MVP
+//     // Go back to main.dart and simply add a button on the HomeScreen for now
+//   },
+//   child: const Text('See Relevant Content'),
+// ),
           ],
         ),
       ),
